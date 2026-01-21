@@ -63,7 +63,7 @@ body.dark-theme {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: "Inter Tight", sans-serif;
 }
 
 body {
@@ -71,6 +71,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-size: 1rem;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -85,9 +86,52 @@ body {
     color: var(--text-primary);
 }
 
+/* Global Radial Blur */
+.radial-blur {
+    position: absolute;
+    width: 90px;
+    height: 410px;
+    border-radius: 50%;
+    background: #6E64CE;
+    filter: blur(150px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Global Section Padding */
+.section-padding {
+    padding: 100px 0;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .container {
         padding: 0 16px;
+    }
+    .radial-blur {
+        width: 80px;
+        height: 240px; 
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .section-padding {
+        padding: 40px 0;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding: 0 10px;
     }
 }

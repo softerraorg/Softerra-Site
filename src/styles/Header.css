@@ -1,12 +1,35 @@
 /* Header Styles */
 .ST-header {
-    padding: 1rem 0;
-    transition: all 0.3s ease;
-    position: sticky;
-    top: 0;
+    padding: 18px 0 17px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
     z-index: 1000;
-    background-color: var(--bg-header);
+    background-color: transparent;
     color: var(--text-primary);
+}
+
+/* Scrolled State - Sticky with Glassy Blur */
+.ST-header.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 12px 0;
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .header-container {
@@ -14,11 +37,12 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 16px;
 }
 
 /* Logo Styles */
 .ST-header .logo {
-    width: 200px;
+    width: 176px;
     height: auto;
     display: flex;
     align-items: center;
@@ -35,20 +59,18 @@
 .ST-header .navigation ul {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 16px;
     align-items: center;
+    margin-left: auto;
 }
 
 .ST-header .navigation a {
     text-decoration: none;
     font-weight: 400;
-    font-size: var(--font-sm);
+    font-size: 16px;
     transition: all 0.3s ease;
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    color: var(--text-primary);
+    color: #000000;
+
 }
 
 .ST-header .navigation a:hover {
@@ -153,82 +175,50 @@ body.light-theme .ST-header .dropdown-menu {
     gap: 2rem;
 }
 
-/* Theme Toggle Switch */
-.ST-header .theme-toggle-container {
-    display: flex;
-    align-items: center;
-}
-
-.ST-header .theme-toggle-input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.ST-header .theme-toggle-label {
-    display: inline-block;
-    width: 60px;
-    height: 30px;
-    background-color: var(--toggle-bg-inactive);
-    border-radius: 15px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.ST-header .theme-toggle-input:checked+.theme-toggle-label {
-    background-color: var(--toggle-bg-active);
-    box-shadow: var(--shadow-glow);
-}
-
-.ST-header .theme-toggle-slider {
-    display: block;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background-color: var(--toggle-slider);
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.3s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.ST-header .theme-toggle-input:checked+.theme-toggle-label .theme-toggle-slider {
-    transform: translateX(30px);
-}
-
-.ST-header .theme-toggle-label:hover {
-    box-shadow: var(--shadow-glow);
-}
-
 /* CTA Button */
 .ST-header .cta-button {
-    padding: 12px 24px;
-    border: none;
+    font-style: normal;
     font-weight: 400;
-    font-size: var(--font-sm);
-    cursor: pointer;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    padding: 10px;
+    width: 133px;
+    height: 39px;
+    background: #000000;
+    border-radius: 29px;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
+    border: none;
+    cursor: pointer;
 }
 
 .ST-header .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    background-color: var(--btn-primary-hover);
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Mobile Phone Icon */
+.mobile-phone-icon {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.mobile-phone-icon:hover {
+    color: #6E64CE;
+    transform: scale(1.1);
+}
+
+.mobile-phone-icon:active {
+    transform: scale(0.95);
 }
 
 .ST-header .arrow {
     transition: transform 0.3s ease;
-}
-
-.ST-header .cta-button:hover .arrow {
-    transform: translateX(3px);
 }
 
 /* Responsive Design */
@@ -332,11 +322,13 @@ body.light-theme .ST-header .dropdown-menu {
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
 .mobile-menu-drawer.open {
     visibility: visible;
     opacity: 1;
+    pointer-events: auto;
 }
 
 .mobile-menu-overlay {
@@ -415,71 +407,44 @@ body.light-theme .ST-header .dropdown-menu {
     padding: 0.5rem 0;
 }
 
-/* Mobile Theme Toggle */
-.mobile-theme-toggle {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Mobile CTA in Drawer */
+.mobile-cta-wrapper {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
 }
 
-.mobile-theme-toggle .theme-toggle-container {
-    display: flex;
-    align-items: center;
-}
-
-.mobile-theme-toggle .theme-toggle-input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.mobile-theme-toggle .theme-toggle-label {
-    display: inline-block;
-    width: 60px;
-    height: 30px;
-    background-color: var(--toggle-bg-inactive);
-    border-radius: 15px;
-    position: relative;
+.mobile-cta-wrapper .cta-button {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 29px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
-.mobile-theme-toggle .theme-toggle-input:checked+.theme-toggle-label {
-    background-color: var(--toggle-bg-active);
-    box-shadow: var(--shadow-glow);
+.mobile-cta-wrapper .cta-button:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-2px);
 }
 
-.mobile-theme-toggle .theme-toggle-slider {
-    display: block;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background-color: var(--toggle-slider);
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.3s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.mobile-theme-toggle .theme-toggle-input:checked+.theme-toggle-label .theme-toggle-slider {
-    transform: translateX(30px);
-}
-
-.mobile-theme-toggle .theme-toggle-label:hover {
-    box-shadow: var(--shadow-glow);
+.mobile-cta-wrapper .cta-button:active {
+    transform: translateY(0);
 }
 
 /* Desktop Navigation Wrapper */
 .desktop-navigation {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+   margin-left: auto;
 }
 
-
+.logo-icon {
+    display: flex;
+}
 
 /* Responsive Breakpoints */
 @media (max-width: 768px) {
@@ -489,8 +454,14 @@ body.light-theme .ST-header .dropdown-menu {
         display: none;
     }
 
-    .ST-header .theme-toggle-desktop {
-        display: none;
+    /* Hide CTA button on mobile header */
+    .header-actions {
+        display: none !important;
+    }
+
+    /* Show mobile phone icon */
+    .mobile-phone-icon {
+        display: flex;
     }
 
     /* Show mobile menu button */
@@ -498,23 +469,30 @@ body.light-theme .ST-header .dropdown-menu {
         display: block;
     }
 
-    /* Mobile header layout */
+    /* Mobile header layout - 3 columns: hamburger, logo, phone */
     .header-container {
         position: relative;
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: 60px 1fr 60px;
+        grid-template-areas: "hamburger logo phone";
         align-items: center;
         gap: 1rem;
     }
 
     .mobile-menu-btn {
-        grid-column: 1;
+        grid-area: hamburger;
         justify-self: start;
     }
 
     .logo {
-        grid-column: 2;
+        grid-area: logo;
         justify-self: center;
+        margin: 0 auto;
+    }
+
+    .mobile-phone-icon {
+        grid-area: phone;
+        justify-self: end;
     }
 
     /* Header adjustments */
@@ -528,15 +506,8 @@ body.light-theme .ST-header .dropdown-menu {
         width: 280px;
     }
 
-    .ST-header .cta-button {
-        max-width: 40px;
-        padding: 8px;
-        font-size: 10px;
-    }
-
     .logo {
-        width: 50px;
-        height: 50px;
+        width: 150px;
     }
 }
 
@@ -544,6 +515,7 @@ body.light-theme .ST-header .dropdown-menu {
     .mobile-menu-content {
         width: 100%;
         max-width: none;
+        padding: 4rem 1rem;
     }
 
     .cta-button span.arrow {

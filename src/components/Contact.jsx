@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
+import bgDecoration from '../assets/portfolio-right-bg-image.png';
+import upworkLogo from '../assets/upwork-logo.png';
+import freelancerLogo from '../assets/upwork-logo.png';
+import fiverrLogo from '../assets/upwork-logo.png';
 
 const Contact = () => {
     const form = useRef();
@@ -18,16 +22,16 @@ const Contact = () => {
         {
             id: 1,
             platform: "Upwork",
-            logo: "upwork",
+            logo: upworkLogo,
             content: "Working with Softerra was one of the best decisions we made during our rebranding and digital overhaul. As a growing e-commerce brand focused on sustainability, we needed more than just a nice-looking site—we needed a fast, secure, and scalable platform that could support our expanding product lines and offer a smooth customer experience across all devices. They didn't just take our brief and run with it—they pushed us to clarify our priorities and rethink parts of our user journey we hadn't considered. Their UX designer, Haseeb, was incredible.",
             author: "Alicia Bennett",
             position: "Head of E-Commerce, WildNest Organics",
             avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&fit=crop&crop=face"
-        }, 
+        },
         {
             id: 2,
             platform: "Freelancer",
-            logo: "freelancer",
+            logo: freelancerLogo,
             content: "Softerra helped us rebuild our client dashboard from scratch, and I can honestly say the experience was one of the best I've had working with an external dev team. Their team was technically solid—strong on React and Node, and they even helped us rethink parts of our architecture to make the system more modular.",
             author: "Michael Rodriguez",
             position: "CTO, InnovateLab",
@@ -36,7 +40,7 @@ const Contact = () => {
         {
             id: 3,
             platform: "Fiverr",
-            logo: "fiverr",
+            logo: fiverrLogo,
             content: "The e-commerce platform Softerra built for us exceeded our expectations. Not only did they deliver a beautiful, user-friendly interface, but they also integrated complex inventory management features that streamlined our operations. Sales increased by 60% within the first three months of launch.",
             author: "Emily Watson",
             position: "Operations Manager, GreenTech Solutions",
@@ -54,12 +58,12 @@ const Contact = () => {
 
             const splide = new Splide('#testimonials-slider', {
                 type: 'loop',
-                perPage: 1, 
+                perPage: 1,
                 perMove: 1,
                 gap: 20,
                 pagination: true,
                 arrows: false,
-                autoplay: true,
+                autoplay: false,
                 interval: 5000,
                 pauseOnHover: true,
             });
@@ -113,7 +117,7 @@ const Contact = () => {
 
             console.log('Email sent successfully:', result.text);
             setMessage('Message sent successfully! We\'ll get back to you soon.');
-            
+
             // Reset form
             setFormData({
                 fullName: '',
@@ -132,91 +136,101 @@ const Contact = () => {
     };
 
     return (
-        <section className="contact-section" id="contact">
+        <section className="contact-section section-padding" id="contact">
+            <img src={bgDecoration} alt="" className="ST-contact-bg-shape" aria-hidden="true" />
+
             <div className="container">
-                <div className="contact-container">
-                <div className="contact-content">
-                    <h2 className="contact-title">
-                        Ready to discuss your<br />
-                        Project with us?
+                <div className="contact-section-header">
+                    <h2 className="contact-section-title">
+                        Let's Work <span className="contact-highlight">Together</span>
                     </h2>
-                    
-                    <form ref={form} onSubmit={handleSubmit} className="contact-form">
-                        <div className="form-row">
+                    <p className="contact-section-subtitle">
+                        Ready to transform your digital presence? Get in touch with us today
+                    </p>
+                </div>
+
+                <div className="contact-container">
+                    <div className="contact-content">
+                        <h2 className="contact-title">
+                            Contact Us
+                        </h2>
+
+                        <form ref={form} onSubmit={handleSubmit} className="contact-form">
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label htmlFor="fullName">Full Name</label>
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleChange}
+                                        required
+                                        className="form-input"
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                        className="form-input"
+                                    />
+                                </div>
+                            </div>
+
                             <div className="form-group">
-                                <label htmlFor="fullName">Full Name</label>
+                                <label htmlFor="projectBudget">Project Budget</label>
                                 <input
                                     type="text"
-                                    id="fullName"
-                                    name="fullName"
-                                    value={formData.fullName}
+                                    id="projectBudget"
+                                    name="projectBudget"
+                                    value={formData.projectBudget}
                                     onChange={handleChange}
-                                    required
                                     className="form-input"
                                 />
                             </div>
-                            
+
                             <div className="form-group">
-                                <label htmlFor="email">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
+                                <label htmlFor="aboutProject">About Project</label>
+                                <textarea
+                                    id="aboutProject"
+                                    name="aboutProject"
+                                    value={formData.aboutProject}
                                     onChange={handleChange}
+                                    rows="4"
+                                    className="form-textarea"
                                     required
-                                    className="form-input"
-                                />
+                                ></textarea>
                             </div>
-                        </div> 
-                        
-                        <div className="form-group">
-                            <label htmlFor="projectBudget">Project Budget</label>
-                            <input
-                                type="text"
-                                id="projectBudget"
-                                name="projectBudget"
-                                value={formData.projectBudget}
-                                onChange={handleChange}
-                                className="form-input"
-                            />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="aboutProject">About Project</label>
-                            <textarea
-                                id="aboutProject"
-                                name="aboutProject"
-                                value={formData.aboutProject}
-                                onChange={handleChange}
-                                rows="4"
-                                className="form-textarea"
-                                required
-                            ></textarea>
-                        </div>
-                        
-                        <div className="form-footer">
-                            <p className="privacy-text">
-                                By sending this form, I confirm that, I have read and accept the{' '}
-                                <a href="www.google.com" className="privacy-link">privacy policy</a>
-                            </p>
-                            
-                            <button 
-                                type="submit" 
-                                className="submit-button"
-                                disabled={isLoading}
-                            >
-                                {isLoading ? 'Sending...' : 'Send Message'}
-                            </button>
-                        </div>
-                        
-                        {message && (
-                            <div className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>
-                                {message}
+
+                            <div className="form-footer">
+                                <p className="privacy-text">
+                                    By sending this form, I confirm that, I have read and accept the{' '}
+                                    <a href="/privacy-policy" className="privacy-link">privacy policy</a>
+                                </p>
+
+                                <button
+                                    type="submit"
+                                    className="submit-button"
+                                    disabled={isLoading}
+                                >
+                                    {isLoading ? 'Sending...' : 'Submit'}
+                                </button>
                             </div>
-                        )}
-                    </form>
-                </div>
+
+                            {message && (
+                                <div className={`message ${message.includes('successfully') ? 'success' : 'error'}`}>
+                                    {message}
+                                </div>
+                            )}
+                        </form>
+                    </div>
 
                     <div className="contact-slider">
                         <div className="testimonials-wrapper">
@@ -228,7 +242,7 @@ const Contact = () => {
                                                 <div className="testimonial-card">
                                                     <div className="testimonial-header">
                                                         <div className="platform-logo">
-                                                            <span className="platform-name">{testimonial.platform}</span>
+                                                            <img src={testimonial.logo} alt={testimonial.platform} />
                                                         </div>
                                                     </div>
                                                     <div className="testimonial-content">
@@ -238,8 +252,8 @@ const Contact = () => {
                                                     </div>
                                                     <div className="testimonial-author">
                                                         <div className="author-avatar">
-                                                            <img 
-                                                                src={testimonial.avatar} 
+                                                            <img
+                                                                src={testimonial.avatar}
                                                                 alt={testimonial.author}
                                                             />
                                                         </div>
@@ -248,7 +262,7 @@ const Contact = () => {
                                                             <p className="author-position">{testimonial.position}</p>
                                                         </div>
                                                     </div>
-                                          
+
                                                 </div>
                                             </div>
                                         ))}
@@ -259,7 +273,7 @@ const Contact = () => {
                     </div>
 
                 </div>
-                
+
             </div>
         </section>
     );

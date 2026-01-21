@@ -1,162 +1,164 @@
+.ST-services-main {
+}
 
+.ST-services-header {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.ST-services-header-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.4;
+    color: #000000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.ST-services-header-title .highlight {
+    color: #6E64CE;
+}
+
+.ST-services-header-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+    text-transform: capitalize;
+
+}
+
+.ST-services-cards-wrapper-main {
+    padding: 60px 0;
+}
+
+.ST-services-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 60px;
+    margin: 0 auto;
+}
+
+.ST-services-card {
+    border-radius: 16px;
+    display: flex;
+    gap: 23px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+}
+
+.ST-services-card-number {
+    font-weight: 900;
+    font-size: 32px;
+    color: #D2CFF0;
+    position: relative;
+}
+.ST-services-card-number:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 28px;
+    background: #6E64CE;
+    top: 12px;
+    right: -25px;
+    z-index: 1;
+}
+.ST-services-card-content{
+    padding-left: 23px;
+    border-left: 2px solid #D2CFF0;
+}
+
+.ST-services-card-image-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+}
+
+.ST-services-card-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ST-services-card-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.4;
+    color: #000000;
+    margin: 0 0 16px;
+}
+
+.ST-services-card-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #101010;
+    margin: 0;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .ST-services-cards-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
     .ST-services-main {
-        padding-top: 60px;
-    }
-
-    .ST-services-header {
-        text-align: center;
-        padding-bottom: 40px;
-    }
-
-    .ST-services-header-title-wrapper {
-        margin-bottom: 24px;
-    }
-
-    .ST-services-header-title {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 56px;
-        line-height: 1.4;
-        text-transform: uppercase;
-        color: #000;
-        color: var(--text-primary);
-        margin: 0;
-    }
-
-    .ST-services-header-description {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 1.6;
-        color: var(--text-primary);
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .ST-services-cards-wrapper-main {
-        background: #00AEEF;
-        padding: 60px 0;
-    }
-
-    .dark-theme .ST-services-cards-wrapper-main {
-        background: #D4D1F0;
+        padding-top: 40px;
     }
 
     .ST-services-cards-wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
     .ST-services-card {
-        background: #fff;
-        padding: 32px;
-        border-radius: 16px;
-        display: flex;
-        flex-direction: column;
+        padding: 20px;
         gap: 20px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .ST-services-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .ST-services-card-image-wrapper {
-        width: 64px;
-        height: 64px;
-    }
-
-    .ST-services-card-icon {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        width: 40px;
+        height: 40px;
     }
 
     .ST-services-card-title {
-        font-style: normal;
-        font-weight: 700;
         font-size: 24px;
-        line-height: 1.4;
-        color: #F94B34;
-        margin: 0;
-        text-align: start;
     }
 
     .ST-services-card-description {
-        font-style: normal;
-        font-weight: 400;
         font-size: 16px;
-        line-height: 1.6;
-        color: #000;
-        margin: 0;
-        text-align: start;
     }
 
-    @media (max-width: 1440px) {
-        .ST-services-header-title {
-            font-size: var(--font-3xl);
-        }
+    .ST-services-cards-wrapper-main {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .ST-services-card {
+        padding: 10px;
+        gap: 10px;
     }
 
-    /* Tablet Styles */
-    @media (max-width: 1024px) {
-        .ST-services-cards-wrapper {
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
+    .ST-services-card-number:after {
+        right: -12px;
     }
-
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-        .ST-services-main {
-            padding-top: 40px;
-        }
-
-        .ST-services-header-title {
-            font-size: 24px;
-        }
-
-        .ST-services-header-title-wrapper {
-            margin-bottom: 20px;
-        }
-
-        .ST-services-header-description-wrapper {
-            margin-bottom: 24px;
-        }
-
-        .ST-services-cards-wrapper {
-            padding-top: 24px;
-            padding-bottom: 24px;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        .ST-services-card {
-            padding: 20px;
-            gap: 20px;
-        }
-
-        .ST-services-card-image-wrapper {
-            width: 40px;
-            height: 40px;
-        }
-
-        .ST-services-card-title {
-            font-size: 24px;
-        }
-
-        .ST-services-card-description {
-            font-size: 16px;
-        }
-
-        .ST-services-cards-wrapper-main {
-            padding: 0;
-        }
+    .ST-services-card-content {
+        padding-left: 10px;
     }
+    .ST-services-card-title {
+        font-size: 20px;
+    }
+    .ST-services-card-description {
+        font-size: 14px;
+    }
+}

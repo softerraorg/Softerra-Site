@@ -1,20 +1,64 @@
 .contact-section {
-    padding: 60px 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Shape */
+.ST-contact-bg-shape {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 40%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Section Header */
+.contact-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contact-section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.contact-highlight {
+    color: #6E64CE;
+}
+
+.contact-section-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    text-transform: capitalize;
 }
 
 .contact-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     gap: 40px;
 }
 
 .contact-content {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    padding: 34px;
+    width: 100%;
     max-width: 50%;
+    box-shadow: 1px 4px 16.4px rgba(110, 100, 206, 0.2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
 .dark-theme .contact-content {
@@ -32,13 +76,14 @@
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
+    flex: 1;
 }
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .form-group {
@@ -116,24 +161,17 @@
 }
 
 .submit-button {
-    background: linear-gradient(135deg, #ed1c24 0%, #d0191f 100%);
+    background: #6E64CE;
     color: white;
     border: none;
-    padding: 18px 40px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(237, 28, 36, 0.3);
 }
 
-.submit-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(237, 28, 36, 0.4);
-}
 
 .submit-button:disabled {
     opacity: 0.7;
@@ -164,7 +202,7 @@
 /* Testimonial Slider Styles */
 .contact-slider {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     width: 100%;
     max-width: 50%;
@@ -172,23 +210,55 @@
 
 .testimonials-wrapper {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#testimonials-slider {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#testimonials-slider .splide__track {
+    height: 100%;
+}
+
+#testimonials-slider .splide__list {
+    height: 100%;
+}
+
+#testimonials-slider .splide__slide {
+    height: 100%;
 }
 
 .testimonial-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
+    padding: 34px;
     border: 1px solid #f0f0f0;
-    height: auto;
-    min-height: 400px;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 25px;
     justify-content: space-between;
+    background: #FFFFFF;
+    border-radius: 8px;
 }
 
 .dark-theme .testimonial-card {
     background: #2C3F46;
     border-color: #6F7C74;
+}
+
+.platform-logo {
+    display: flex;
+    align-items: center;
+}
+
+.platform-logo img {
+    height: 58px;
+    width: auto;
+    object-fit: contain;
 }
 
 .platform-name {
@@ -208,14 +278,14 @@
 
 .testimonial-author {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 15px;
     margin-bottom: 15px;
 }
 
 .author-avatar {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: auto;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
@@ -270,7 +340,7 @@
 }
 
 #testimonials-slider .splide__pagination__page.is-active {
-    background: #ed1c24;
+    background: #6E64CE;
     transform: scale(1.2);
 }
 
@@ -283,8 +353,16 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .contact-section {
-        padding: 40px 0px;
+    .contact-section-header {
+        margin-bottom: 40px;
+    }
+
+    .contact-section-title {
+        font-size: 28px;
+    }
+
+    .contact-section-subtitle {
+        font-size: 14px;
     }
     
     .contact-container {

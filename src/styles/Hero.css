@@ -1,191 +1,168 @@
 .ST-Hero-section-main {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    background-color: var(--bg-primary);
-    transition: all 0.3s ease
+    position: relative;
+    overflow: hidden;
+}
+
+/* Position radial blur at center */
+.ST-Hero-section-main .radial-blur {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Left and Right Side Images */
+.ST-hero-left-image {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28%;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    animation: oscillateLeft 3s ease-in-out infinite;
+}
+
+.ST-hero-right-image {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28%;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    animation: oscillateRight 3s ease-in-out infinite;
+}
+
+/* Oscillating animations */
+@keyframes oscillateLeft {
+    0%, 100% {
+        transform: translateY(calc(-50% + 0px));
+    }
+    50% {
+        transform: translateY(calc(-50% - 20px));
+    }
+}
+
+@keyframes oscillateRight {
+    0%, 100% {
+        transform: translateY(calc(-50% + 0px));
+    }
+    50% {
+        transform: translateY(calc(-50% + 20px));
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
 }
 
 .ST-Hero-section-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center
 }
 
 .ST-Hero-upwork-box-wrapper {
-    background: #00AEEF;
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    padding: 10px 20px;
+    background: #F1F0FA;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 25px;
+    padding: 13px 20px;
     display: flex;
     gap: 10px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
-    width: 100%;
-    max-width: 350px;
     box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease
-}
-
-.dark-theme .ST-Hero-upwork-box-wrapper {
-    background: #162F3C
-}
-
-.ST-Hero-upwork-logo-wrapper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 120px;
-    height: 56px
-}
-
-.ST-Hero-upwork-logo-wrapper svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain
-}
-
-.ST-Hero-success-rate-wrapper {
-    display: flex;
-    align-items: center
+    transition: all 0.3s ease;
 }
 
 .ST-Hero-success-rate-text {
     font-style: normal;
-    font-weight: 700;
-    font-size: var(--font-xl);
+    font-weight: 400;
+    font-size: 16px;
     line-height: 100%;
-    color: #fff
+    color: #000000;
+    text-transform: capitalize;
+
 }
 
-.ST-Hero-banner-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 24px
-}
-
-.ST-Hero-title-wrapper {
-    margin-bottom: 12px
-}
-
-.ST-Hero-highlight-wrapper {
-    margin-bottom: 12px
-}
-
-.ST-Hero-highlight-text {
-    font-style: normal;
+.ST-Hero-title {
     font-weight: 700;
-    font-size: var(--font-4xl);
-    line-height: 110%;
-    color: var(--text-primary)
-}
-
-.ST-Hero-subtitle-wrapper {
-    margin-bottom: 12px
-}
-
-.ST-Hero-subtitle-text {
     font-style: normal;
-    font-weight: 300;
-    font-size: var(--font-4xl);
-    line-height: 130%;
-    color: var(--text-primary)
+    font-size: 64px;
+    line-height: 1.1;
+    text-align: center;
+    text-transform: capitalize;
+    color: #000000;
+    margin-bottom: 30px;
 }
+
+.ST-Hero-title .highlight {
+    display: block;
+    color: #6E64CE;
+}
+
+.ST-Hero-subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.1;
+    text-align: center;
+    text-transform: capitalize;
+    max-width: 760px;
+    margin: 0 auto;
+    color: #000000;
+}
+
+
+
 
 .ST-Hero-buttons-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     width: 100%;
-    max-width: 400px
+    margin-top: 30px;
 }
 
-.ST-Hero-quote-button-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ST-Hero-button-dark,
+.ST-Hero-button-light {
+    display: block;
     padding: 16px 12px;
-    gap: 10px;
     width: 100%;
-    max-width: 190px;
-    min-height: 56px;
-    background: var(--btn-primary-bg);
-    border-radius: 8px;
+    max-width: 199px;
+    border-radius: 29px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: none;
-    box-shadow: var(--shadow-sm)
+
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+
 }
 
-.ST-Hero-quote-button-wrapper:hover {
-    background: var(--btn-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md)
+.ST-Hero-button-dark svg,
+.ST-Hero-button-light svg{
+    width: 12px;
+    height: 12px;
+    margin-left: 10px;
 }
 
-.ST-Hero-quote-button-text {
-    font-style: normal;
-    font-weight: 700;
-    font-size: var(--font-xl);
-    line-height: 100%;
-    color: var(--btn-primary-text)
+.ST-Hero-button-dark {
+    background: #000000;
+    color: #ffffff;
 }
 
-.ST-Hero-projects-button-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 12px;
-    width: 100%;
-    max-width: 190px;
-    min-height: 56px;
-    border: 2px solid var(--btn-secondary-bg);
-    border-radius: 8px;
-    cursor: pointer;
-    background: #fff0;
-    transition: all 0.3s ease
+.ST-Hero-button-light {
+    background: #ffffff;
+    color: #000000;
 }
 
-.ST-Hero-projects-button-wrapper:hover {
-    background: var(--btn-secondary-bg);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md)
-}
-
-.ST-Hero-projects-button-wrapper:hover .ST-Hero-projects-button-text {
-    color: var(--btn-secondary-text)
-}
-
-.ST-Hero-projects-button-text {
-    font-style: normal;
-    font-weight: 700;
-    font-size: var(--font-xl);
-    line-height: 1.1;
-    color: var(--text-primary);
-    transition: color 0.3s ease
-}
-
-@media (max-width:991px) {
-    .ST-Hero-highlight-text {
-        font-size: var(--font-3xl)
-    }
-
-    .ST-Hero-subtitle-text {
-        font-size: var(--font-lg)
-    }
-}
-
-@media (max-width:1440px) {
-    .ST-Hero-subtitle-text {
-        font-size: var(--font-3xl);
-    }
-
-    .ST-Hero-highlight-text {
-        font-size: 48px;
-    }
-}
 
 @media (max-width:768px) {
     .ST-Hero-section-main {
@@ -193,45 +170,33 @@
         padding-bottom: 40px
     }
 
-    .ST-Hero-upwork-box-wrapper {
-        flex-direction: column;
-        padding: 10px 10px;
+
+    .ST-Hero-title {
         margin-bottom: 30px;
-        max-width: 162px
+        font-size: 42px;
+    }
+
+    .ST-Hero-subtitle {
+        font-size: 16px;
+    }
+
+    .ST-Hero-upwork-box-wrapper {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    .ST-Hero-upwork-box-wrapper img {
+        max-width: 56px;
     }
 
     .ST-Hero-success-rate-text {
-        font-size: var(--font-sm)
-    }
-
-    .ST-Hero-banner-content-wrapper {
-        margin-bottom: 30px
-    }
-
-    .ST-Hero-title-wrapper,
-    .ST-Hero-highlight-wrapper,
-    .ST-Hero-subtitle-wrapper {
-        margin-bottom: 10px
-    }
-
-    .ST-Hero-title-text {
-        font-size: var(--font-lg)
-    }
-
-    .ST-Hero-highlight-text {
-        font-size: var(--font-2xl);
-        line-height: 1.2
-    }
-
-    .ST-Hero-subtitle-text {
-        font-size: var(--font-xl);
-        line-height: 1.2
+        font-size: 10px;
     }
 
     .ST-Hero-buttons-wrapper {
         justify-content: space-between;
         align-items: center;
-        max-width: 340px
+        flex-direction: column;
     }
 
     .ST-Hero-quote-button-wrapper,
@@ -240,13 +205,24 @@
         max-width: 154px;
         min-height: 50px
     }
+}
 
-    .ST-Hero-quote-button-text,
-    .ST-Hero-projects-button-text {
-        font-size: var(--font-sm)
+
+
+
+@media (max-width:600px) {
+    .ST-hero-right-image {
+        top: 22%;
+        width: 50%;
     }
 
-    .ST-Hero-projects-button-text {
-        line-height: 1.4
+    .ST-hero-left-image {
+        width: 40%;
+        top: 60%;
     }
+
+    .ST-Hero-title {
+        font-size: 32px;
+    }
+
 }

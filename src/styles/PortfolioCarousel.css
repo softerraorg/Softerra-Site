@@ -1,0 +1,169 @@
+.ST-portfolio-carousel-section-main {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* Background Elements */
+.ST-portfolio-carousel-section-main .radial-blur {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ST-portfolio-bg-shape {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 40%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ST-portfolio-carousel-section-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header Styles */
+.ST-portfolio-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-title .highlight { color: #6E64CE; }
+
+.section-description {
+    color: #555;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Carousel Mechanics */
+.ST-portfolio-carousel-wrapper {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.ST-portfolio-carousel {
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.ST-portfolio-carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 20px;
+}
+
+/* Desktop: 4 items */
+.ST-portfolio-project-item {
+    flex: 0 0 calc((100% - 60px) / 4);
+}
+
+.ST-portfolio-project-image-wrapper {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.ST-portfolio-project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navigation Arrows */
+.ST-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.ST-carousel-arrow-prev { left: -22px; }
+.ST-carousel-arrow-next { right: -22px; }
+.ST-carousel-arrow svg { color: #6E64CE; }
+
+/* Dots */
+.ST-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.ST-carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #E0E0E0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ST-carousel-dot.active {
+    background: #6E64CE;
+    transform: scale(1.2);
+}
+
+/* Footer Button */
+.ST-portfolio-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.ST-view-all-btn {
+    background: #000;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    border: none;
+    gap: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE UPDATES */
+
+/* Tablet: Show 3 items */
+@media (max-width: 1024px) {
+    .ST-portfolio-project-item {
+        flex: 0 0 calc((100% - 40px) / 3);
+    }
+    .ST-carousel-arrow-prev { left: 0px; }
+    .ST-carousel-arrow-next { right: 0px; }
+}
+
+/* Mobile: Show 1 item */
+@media (max-width: 600px) {
+    .ST-portfolio-project-item {
+        flex: 0 0 100%;
+    }
+    .ST-portfolio-carousel-track {
+        gap: 0;
+    }
+    .ST-carousel-arrow { display: none; } /* Arrows usually hidden on mobile for touch */
+}

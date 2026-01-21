@@ -6,7 +6,9 @@ import '../styles/Footer.css';
 
 const Footer = () => {
     return (
-        <footer className="ST-footer-main"> 
+        <footer className="ST-footer-main">
+            <div className="ST-footer-blur"></div>
+            
             <div className="container">
                 <div className="ST-footer-content">
                     {/* Logo and Description Section */}
@@ -66,7 +68,7 @@ const Footer = () => {
                                 <a href="tel:+923015337280">+92 301 533 7280</a>
                             </div>
                             <div className="ST-footer-email">
-                                <a href="mailto:profituned@gmail.com">profituned@gmail.com</a>
+                                <a href="mailto:softerraorg@gmail.com">softerraorg@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +78,7 @@ const Footer = () => {
 
                 {/* Copyright Section */}
                 <div className="ST-footer-copyright-wrapper">
-                    <p className="ST-footer-copyright">© 2024 Softerra</p>
+                    <p className="ST-footer-copyright">&copy; 2026 Softerra</p>
                 </div>
             </div>
         </footer>
