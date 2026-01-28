@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import PortfolioCarousel from '../components/PortfolioCarousel';
 import Services from '../components/Services';
 import Map from '../components/Map';
-import MapStatic from '../components/MapStatic';
 import Faqs from '../components/Faqs';
 import Contact from '../components/Contact';
 
@@ -18,7 +17,6 @@ const Home = () => {
                 <Hero />
                 <Services />
                 <PortfolioCarousel />
-                {/* <MapStatic /> */}
                 <Map />
                 <Faqs />
                 <Contact />

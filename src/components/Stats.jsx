@@ -38,6 +38,7 @@ const Stats = () => {
     ];
 
     useEffect(() => {
+        const element = statsRef.current;
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -50,13 +51,13 @@ const Stats = () => {
             { threshold: 0.1 }
         );
 
-        if (statsRef.current) {
-            observer.observe(statsRef.current);
+        if (element) {
+            observer.observe(element);
         }
 
         return () => {
-            if (statsRef.current) {
-                observer.unobserve(statsRef.current);
+            if (element) {
+                observer.unobserve(element);
             }
         };
     }, []);
