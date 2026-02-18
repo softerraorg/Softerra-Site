@@ -1,6 +1,8 @@
 .contact-section {
     position: relative;
     overflow: hidden;
+    background: var(--bg-primary);
+    transition: background 0.3s ease;
 }
 
 /* Background Shape */
@@ -12,6 +14,7 @@
     width: 40%;
     z-index: 1;
     pointer-events: none;
+    animation: oscillateDown 3s ease-in-out infinite;
 }
 
 .container {
@@ -29,19 +32,22 @@
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #000;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 .contact-highlight {
-    color: #6E64CE;
+    color: var(--color-brand);
+    transition: color 0.3s ease;
 }
 
 .contact-section-subtitle {
     font-size: 16px;
     font-weight: 400;
-    color: #000;
+    color: var(--text-primary);
     margin: 0;
     text-transform: capitalize;
+    transition: color 0.3s ease;
 }
 
 .contact-container {
@@ -59,10 +65,13 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    background: var(--contact-form-bg, #ffffff);
+    border: 1px solid var(--border-light);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.dark-theme .contact-content {
-    background: #2C3F46;
+body.dark-theme .contact-content {
+    --contact-form-bg: var(--bg-surface);
 }
 
 .contact-title {
@@ -71,6 +80,7 @@
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 20px;
+    transition: color 0.3s ease;
 }
 
 .contact-form {
@@ -96,38 +106,40 @@
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
 .form-input,
 .form-textarea {
     padding: 15px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--contact-input-border, #e2e8f0);
     border-radius: 10px;
     font-size: 16px;
     color: var(--text-primary);
-    background: #f9fafb;
-    transition: all 0.3s ease;
+    background: var(--contact-input-bg, #f9fafb);
+    transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     outline: none;
     font-family: inherit;
 }
 
-.dark-theme .form-input,
-.dark-theme .form-textarea {
-    background: transparent;
-    border-color: #6F7C74;
+body.dark-theme .form-input,
+body.dark-theme .form-textarea {
+    --contact-input-border: var(--border-light);
+    --contact-input-bg: transparent;
 }
 
 .form-input:focus,
 .form-textarea:focus {
-    border-color: #3182ce;
-    background: white;
+    border-color: var(--contact-focus-border, #3182ce);
+    background: var(--contact-focus-bg, #ffffff);
     box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
 }
 
-.dark-theme .form-input:focus,
-.dark-theme .form-textarea:focus {
-    border-color: #3182ce;
-    background: transparent;
+body.dark-theme .form-input:focus,
+body.dark-theme .form-textarea:focus {
+    --contact-focus-border: var(--color-brand);
+    --contact-focus-bg: transparent;
+    box-shadow: 0 0 0 3px rgba(110, 100, 206, 0.2);
 }
 
 .form-textarea {
@@ -148,12 +160,18 @@
     color: var(--text-primary);
     text-align: center;
     line-height: 1.5;
+    transition: color 0.3s ease;
 }
 
 .privacy-link {
-    color: #3182ce;
+    color: var(--contact-link, #3182ce);
     text-decoration: none;
     font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .privacy-link {
+    --contact-link: var(--color-brand);
 }
 
 .privacy-link:hover {
@@ -161,17 +179,20 @@
 }
 
 .submit-button {
-    background: #6E64CE;
-    color: white;
+    background: var(--color-brand);
+    color: var(--text-inverse);
     border: none;
     padding: 12px 20px;
     border-radius: 24px;
     font-size: 14px;
     font-weight: 400;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
+.submit-button:hover:not(:disabled) {
+    background: var(--btn-primary-hover);
+}
 
 .submit-button:disabled {
     opacity: 0.7;
@@ -185,18 +206,31 @@
     text-align: center;
     font-weight: 500;
     margin-top: 20px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .message.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background: var(--message-success-bg, #d4edda);
+    color: var(--message-success-text, #155724);
+    border: 1px solid var(--message-success-border, #c3e6cb);
+}
+
+body.dark-theme .message.success {
+    --message-success-bg: rgba(21, 87, 36, 0.25);
+    --message-success-text: #6ee7a0;
+    --message-success-border: rgba(34, 197, 94, 0.3);
 }
 
 .message.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    background: var(--message-error-bg, #f8d7da);
+    color: var(--message-error-text, #721c24);
+    border: 1px solid var(--message-error-border, #f5c6cb);
+}
+
+body.dark-theme .message.error {
+    --message-error-bg: rgba(114, 28, 36, 0.3);
+    --message-error-text: #fca5a5;
+    --message-error-border: rgba(239, 68, 68, 0.3);
 }
 
 /* Testimonial Slider Styles */
@@ -235,19 +269,20 @@
 
 .testimonial-card {
     padding: 34px;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--contact-card-border, #f0f0f0);
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 25px;
     justify-content: space-between;
-    background: #FFFFFF;
+    background: var(--contact-card-bg, #ffffff);
     border-radius: 8px;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.dark-theme .testimonial-card {
-    background: #2C3F46;
-    border-color: #6F7C74;
+body.dark-theme .testimonial-card {
+    --contact-card-bg: var(--bg-surface);
+    --contact-card-border: var(--border-light);
 }
 
 .platform-logo {
@@ -331,16 +366,20 @@
 }
 
 #testimonials-slider .splide__pagination__page {
-    background: #d1d5db;
+    background: var(--contact-dot-inactive, #d1d5db);
     width: 12px;
     height: 12px;
     margin: 0 6px;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-theme #testimonials-slider .splide__pagination__page {
+    --contact-dot-inactive: rgba(255, 255, 255, 0.25);
 }
 
 #testimonials-slider .splide__pagination__page.is-active {
-    background: #6E64CE;
+    background: var(--color-brand);
     transform: scale(1.2);
 }
 

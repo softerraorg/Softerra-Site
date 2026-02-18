@@ -21,6 +21,10 @@
     animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+body.dark-theme .ST-header.scrolled {
+    background: rgba(9, 28, 38, 0.9);
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -69,8 +73,7 @@
     font-weight: 400;
     font-size: 16px;
     transition: all 0.3s ease;
-    color: #000000;
-
+    color: var(--text-primary);
 }
 
 .ST-header .navigation a:hover {
@@ -175,6 +178,40 @@ body.light-theme .ST-header .dropdown-menu {
     gap: 2rem;
 }
 
+/* Theme Toggle Button */
+.ST-header .theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ST-header .theme-toggle-btn:hover {
+    background: var(--text-accent);
+    color: var(--text-inverse);
+    transform: scale(1.05);
+}
+
+.ST-header .theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.mobile-theme-toggle {
+    width: auto;
+    padding: 0 16px;
+    border-radius: 29px;
+    gap: 8px;
+    font-size: 16px;
+}
+
 /* CTA Button */
 .ST-header .cta-button {
     font-style: normal;
@@ -197,6 +234,13 @@ body.light-theme .ST-header .dropdown-menu {
 }
 
 /* Mobile Phone Icon */
+/* Mobile top-right: theme toggle + phone (visible only on mobile) */
+.ST-header .mobile-header-right {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .mobile-phone-icon {
     display: none;
     align-items: center;
@@ -215,6 +259,14 @@ body.light-theme .ST-header .dropdown-menu {
 
 .mobile-phone-icon:active {
     transform: scale(0.95);
+}
+
+body.dark-theme .ST-header .mobile-phone-icon {
+    color: var(--text-primary, #fff);
+}
+
+body.dark-theme .ST-header .mobile-phone-icon:hover {
+    color: var(--color-brand, #6E64CE);
 }
 
 .ST-header .arrow {
@@ -454,14 +506,20 @@ body.light-theme .ST-header .dropdown-menu {
         display: none;
     }
 
-    /* Hide CTA button on mobile header */
+    /* Hide CTA / desktop actions on mobile header */
     .header-actions {
         display: none !important;
     }
 
-    /* Show mobile phone icon */
-    .mobile-phone-icon {
-        display: flex;
+    /* Show mobile top-right: theme toggle + phone icon */
+    .ST-header .mobile-header-right {
+        display: flex !important;
+        grid-area: phone;
+        justify-self: end;
+    }
+
+    .ST-header .mobile-header-right .mobile-phone-icon {
+        display: flex !important;
     }
 
     /* Show mobile menu button */
@@ -490,10 +548,6 @@ body.light-theme .ST-header .dropdown-menu {
         margin: 0 auto;
     }
 
-    .mobile-phone-icon {
-        grid-area: phone;
-        justify-self: end;
-    }
 
     /* Header adjustments */
     .ST-header {

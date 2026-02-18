@@ -35,25 +35,6 @@
     animation: oscillateRight 3s ease-in-out infinite;
 }
 
-/* Oscillating animations */
-@keyframes oscillateLeft {
-    0%, 100% {
-        transform: translateY(calc(-50% + 0px));
-    }
-    50% {
-        transform: translateY(calc(-50% - 20px));
-    }
-}
-
-@keyframes oscillateRight {
-    0%, 100% {
-        transform: translateY(calc(-50% + 0px));
-    }
-    50% {
-        transform: translateY(calc(-50% + 20px));
-    }
-}
-
 .container {
     position: relative;
     z-index: 2;
@@ -66,8 +47,8 @@
 }
 
 .ST-Hero-upwork-box-wrapper {
-    background: #F1F0FA;
-    border: 1px solid rgba(128, 128, 128, 0.2);
+    background: var(--hero-surface, #F1F0FA);
+    border: 1px solid var(--border-light);
     border-radius: 25px;
     padding: 13px 20px;
     display: flex;
@@ -76,7 +57,11 @@
     align-items: center;
     margin-bottom: 24px;
     box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .ST-Hero-upwork-box-wrapper {
+    --hero-surface: var(--bg-surface);
 }
 
 .ST-Hero-success-rate-text {
@@ -84,9 +69,9 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 100%;
-    color: #000000;
+    color: var(--text-primary);
     text-transform: capitalize;
-
+    transition: color 0.3s ease;
 }
 
 .ST-Hero-title {
@@ -96,13 +81,15 @@
     line-height: 1.1;
     text-align: center;
     text-transform: capitalize;
-    color: #000000;
+    color: var(--text-primary);
     margin-bottom: 30px;
+    transition: color 0.3s ease;
 }
 
 .ST-Hero-title .highlight {
     display: block;
-    color: #6E64CE;
+    color: var(--color-brand);
+    transition: color 0.3s ease;
 }
 
 .ST-Hero-subtitle {
@@ -113,7 +100,8 @@
     text-transform: capitalize;
     max-width: 760px;
     margin: 0 auto;
-    color: #000000;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 
@@ -136,31 +124,50 @@
     max-width: 199px;
     border-radius: 29px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
     font-weight: 400;
     font-size: 16px;
     text-transform: capitalize;
     text-decoration: none;
     text-align: center;
-
 }
 
 .ST-Hero-button-dark svg,
-.ST-Hero-button-light svg{
+.ST-Hero-button-light svg {
     width: 12px;
     height: 12px;
     margin-left: 10px;
 }
 
+/* Primary CTA – dark in light mode, inverts in dark mode */
 .ST-Hero-button-dark {
-    background: #000000;
-    color: #ffffff;
+    background: var(--hero-cta-bg, #000000);
+    color: var(--hero-cta-text, #ffffff);
+    border: none;
 }
 
+.ST-Hero-button-dark:hover {
+    background: var(--hero-cta-hover, rgba(0, 0, 0, 0.9));
+}
+
+body.dark-theme .ST-Hero-button-dark {
+    --hero-cta-bg: var(--btn-primary-bg);
+    --hero-cta-text: var(--btn-primary-text);
+    --hero-cta-hover: var(--btn-primary-hover);
+}
+
+/* Secondary CTA – surface background, primary text */
 .ST-Hero-button-light {
-    background: #ffffff;
-    color: #000000;
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+}
+
+.ST-Hero-button-light:hover {
+    background: var(--color-brand);
+    color: var(--text-inverse);
+    border-color: var(--color-brand);
 }
 
 

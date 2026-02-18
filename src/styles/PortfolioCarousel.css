@@ -1,7 +1,8 @@
 .ST-portfolio-carousel-section-main {
     position: relative;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
 }
 
 /* Background Elements */
@@ -19,6 +20,7 @@
     width: 40%;
     z-index: 1;
     pointer-events: none;
+    animation: oscillateDown 3s ease-in-out infinite;
 }
 
 .ST-portfolio-carousel-section-wrapper {
@@ -36,15 +38,25 @@
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 10px;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
-.section-title .highlight { color: #6E64CE; }
+.section-title .highlight {
+    color: var(--color-brand);
+    transition: color 0.3s ease;
+}
 
 .section-description {
-    color: #555;
+    color: var(--portfolio-description, #555);
     font-size: 16px;
     max-width: 600px;
     margin: 0 auto;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .section-description {
+    --portfolio-description: var(--text-secondary);
 }
 
 /* Carousel Mechanics */
@@ -89,19 +101,28 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #fff;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: var(--portfolio-arrow-bg, #fff);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--portfolio-arrow-shadow, 0 4px 12px rgba(0, 0, 0, 0.1));
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 10;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .ST-carousel-arrow {
+    --portfolio-arrow-bg: var(--bg-surface);
+    --portfolio-arrow-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .ST-carousel-arrow-prev { left: -22px; }
 .ST-carousel-arrow-next { right: -22px; }
-.ST-carousel-arrow svg { color: #6E64CE; }
+.ST-carousel-arrow svg {
+    color: var(--color-brand);
+    transition: color 0.3s ease;
+}
 
 /* Dots */
 .ST-carousel-dots {
@@ -116,13 +137,17 @@
     height: 10px;
     border-radius: 50%;
     border: none;
-    background: #E0E0E0;
+    background: var(--portfolio-dot-inactive, #E0E0E0);
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-theme .ST-carousel-dot {
+    --portfolio-dot-inactive: rgba(255, 255, 255, 0.25);
 }
 
 .ST-carousel-dot.active {
-    background: #6E64CE;
+    background: var(--color-brand);
     transform: scale(1.2);
 }
 
@@ -134,8 +159,8 @@
 }
 
 .ST-view-all-btn {
-    background: #000;
-    color: #fff;
+    background: var(--portfolio-btn-bg, #000);
+    color: var(--portfolio-btn-text, #fff);
     padding: 12px 30px;
     border-radius: 50px;
     display: flex;
@@ -144,6 +169,17 @@
     gap: 10px;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.ST-view-all-btn:hover {
+    background: var(--portfolio-btn-hover, rgba(0, 0, 0, 0.9));
+}
+
+body.dark-theme .ST-view-all-btn {
+    --portfolio-btn-bg: var(--btn-primary-bg);
+    --portfolio-btn-text: var(--btn-primary-text);
+    --portfolio-btn-hover: var(--btn-primary-hover);
 }
 
 /* RESPONSIVE UPDATES */

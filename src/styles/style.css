@@ -9,7 +9,8 @@
     --text-primary: #000000;
     --text-secondary: #374151;
     --text-inverse: #ffffff;
-    --text-accent: #667eea;
+    --text-accent: #6E64CE;
+    --color-brand: #6E64CE;
 
     /* Font Sizes */
     --font-xs: 0.75rem;
@@ -24,8 +25,8 @@
     --btn-primary-bg: #dc2626;
     --btn-primary-hover: #b91c1c;
     --btn-primary-text: #ffffff;
-    --btn-secondary-bg: #667eea;
-    --btn-secondary-hover: #5a67d8;
+    --btn-secondary-bg: #6E64CE;
+    --btn-secondary-hover: #5d54b8;
     --btn-secondary-text: #ffffff;
 
     /* Theme Toggle Colors */
@@ -47,10 +48,11 @@ body.dark-theme {
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
     --text-inverse: #333333;
-    --text-accent: #667eea;
+    --text-accent: #6E64CE;
+    --color-brand: #6E64CE;
 
-    --btn-primary-bg: #667eea;
-    --btn-primary-hover: #5a67d8;
+    --btn-primary-bg: #6E64CE;
+    --btn-primary-hover: #5d54b8;
     --btn-secondary-bg: #dc2626;
     --btn-secondary-hover: #b91c1c;
 
@@ -103,6 +105,33 @@ body {
     padding: 100px 0;
 }
 
+/* Common oscillating animations (Hero, Portfolio, etc.) */
+@keyframes oscillateLeft {
+    0%, 100% {
+        transform: translateY(calc(-50% + 0px));
+    }
+    50% {
+        transform: translateY(calc(-50% - 20px));
+    }
+}
+
+@keyframes oscillateRight {
+    0%, 100% {
+        transform: translateY(calc(-50% + 0px));
+    }
+    50% {
+        transform: translateY(calc(-50% + 20px));
+    }
+}
+
+@keyframes oscillateDown {
+    0%, 100% {
+        transform: translate(0%, calc(-50% + 0px));
+    }
+    50% {
+        transform: translate(0%, calc(-50% + 20px));
+    }
+}
 
 @media screen and (max-width: 1024px) {
     .section-padding {

@@ -5,25 +5,29 @@
     max-width: 850px;
     margin: 120px auto 0;
     padding: 0 20px;
-    
 }
 
 .ST-Stat-item {
     padding: 0 30px;
-    border-right: 1px solid #00000040;
-    transition: all 0.3s ease;
+    border-right: 1px solid var(--stats-divider, rgba(0, 0, 0, 0.25));
+    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .ST-Stat-item:last-child {
     border-right: none;
 }
 
+body.dark-theme .ST-Stat-item {
+    --stats-divider: var(--border-light);
+}
+
 .ST-Stat-number {
     font-weight: 700;
     font-size: 32px;
     line-height: 100%;
-    color: #6E64CE;
+    color: var(--color-brand);
     margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
 .ST-Stat-label {
@@ -31,7 +35,8 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.4;
-    color: #000000;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 /* Responsive Design */

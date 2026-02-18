@@ -11,23 +11,25 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 1.4;
-    color: #000000;
+    color: var(--text-primary);
     margin-bottom: 15px;
     text-align: center;
+    transition: color 0.3s ease;
 }
 
 .ST-services-header-title .highlight {
-    color: #6E64CE;
+    color: var(--color-brand);
+    transition: color 0.3s ease;
 }
 
 .ST-services-header-description {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
+    color: var(--text-primary);
     margin: 0;
     text-transform: capitalize;
-
+    transition: color 0.3s ease;
 }
 
 .ST-services-cards-wrapper-main {
@@ -45,29 +47,39 @@
     border-radius: 16px;
     display: flex;
     gap: 23px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     padding: 10px;
 }
 
 .ST-services-card-number {
     font-weight: 900;
     font-size: 32px;
-    color: #D2CFF0;
+    color: var(--services-muted, #D2CFF0);
     position: relative;
+    transition: color 0.3s ease;
 }
+
 .ST-services-card-number:after {
     content: "";
     position: absolute;
     width: 2px;
     height: 28px;
-    background: #6E64CE;
+    background: var(--color-brand);
     top: 12px;
     right: -25px;
     z-index: 1;
+    transition: background 0.3s ease;
 }
-.ST-services-card-content{
+
+.ST-services-card-content {
     padding-left: 23px;
-    border-left: 2px solid #D2CFF0;
+    border-left: 2px solid var(--services-muted, #D2CFF0);
+    transition: border-color 0.3s ease;
+}
+
+body.dark-theme .ST-services-card-number,
+body.dark-theme .ST-services-card-content {
+    --services-muted: rgba(110, 100, 206, 0.35);
 }
 
 .ST-services-card-image-wrapper {
@@ -87,16 +99,22 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 1.4;
-    color: #000000;
+    color: var(--text-primary);
     margin: 0 0 16px;
+    transition: color 0.3s ease;
 }
 
 .ST-services-card-description {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.4;
-    color: #101010;
+    color: var(--services-description, #101010);
     margin: 0;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .ST-services-card-description {
+    --services-description: var(--text-secondary);
 }
 
 /* Tablet Styles */
